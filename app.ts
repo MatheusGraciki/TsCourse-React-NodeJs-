@@ -1,16 +1,39 @@
-class User {
-    name: string = '2';
-    age:number = 2;
+class UserAccount{
+    name: string;
+    accountNumber: number;
 
-    constructor(name:string, age:number) {
+
+    constructor(name: string, accountNumber: number){
         this.name = name;
-        this.age = age;
+        this.accountNumber = accountNumber
     }
 
-    showName(){
-        console.log(this.name, this.age);
+    deposit = (amount:string, accountNumber: number) => {
+        console.log("voce depositou");
+        
+    }
+
+    withdraw = (amount:string, accountNumber: number) => {
+        console.log("voce sacou");
     }
 }
 
-const user = new User('Jooj', 2);
-user.showName();
+class AdminAccount  extends UserAccount{
+    balance: number;
+    
+    constructor(name: string, accountNumber:number) {
+        super(name, accountNumber);
+        this.balance = 20
+    }
+
+    getValue = () => {
+        console.log(this.balance);
+    }
+}
+
+const newAdminAccount: AdminAccount = new AdminAccount('joao', 1)
+console.log(newAdminAccount)
+
+const newAccount:UserAccount = new UserAccount('Paulin', 1)
+console.log(newAccount);
+newAccount.deposit
