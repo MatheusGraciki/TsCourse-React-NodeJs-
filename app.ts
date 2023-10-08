@@ -1,13 +1,16 @@
-const typeOfUser = {
-    admin: 'you are a admin',
-    student: 'you are a student',
-    viewer: 'you are a viewer'
+class User {
+    name: string = '2';
+    age:number = 2;
+
+    constructor(name:string, age:number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    showName(){
+        console.log(this.name, this.age);
+    }
 }
 
-
-function validateUser(user:string) {
-    console.log(typeOfUser[user as keyof typeof typeOfUser] )
-}
-const user = 'admin'
-
-validateUser(user)
+const user = new User('Jooj', 2);
+user.showName();
