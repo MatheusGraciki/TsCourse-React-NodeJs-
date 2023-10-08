@@ -8,4 +8,9 @@ export class CompanyAccount extends DioAccount{
     getLoan = (): void => {
         console.log("voce pegou um emprestimo")
     }
+// a assinatura do metodo foi alterado, na classe mãe(DioAccount) ele é  assinado como void(retorna vazio), aqui ele retorna um número
+    deposit = (): number => {
+        return 2
+    }
 }
+
