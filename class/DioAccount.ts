@@ -13,9 +13,10 @@ Geralmente usada quando você deseja definir um conjunto de métodos e proprieda
 */
 
 export abstract class DioAccount{
-    name: string;
+    private name: string;
     accountNumber: number;
     balance: number = 0;
+    private status: boolean = true;
 
 
     constructor(name: string, accountNumber: number){
@@ -23,8 +24,20 @@ export abstract class DioAccount{
         this.accountNumber = accountNumber
     }
 
+    setName(name: string):void{
+        this.name = name
+    }
+
+
+    getName():string{
+        return this.name
+    }
+
     deposit = (): void => {
+        if(this.validate()){
         console.log("voce depositou");
+        }
+        
         
     }
 
@@ -34,5 +47,13 @@ export abstract class DioAccount{
     
     getBalance = (): void => {
         console.log(this.balance);
+    }
+
+    validate = (): boolean => {
+        if(this.status){
+            return this.status
+        }
+        throw new Error("conta inválida");
+        
     }
 }
